@@ -22,27 +22,27 @@ main :: proc() {
 		is_increasing : bool
 		is_safe := true
 		for number_elem, index in numbers {
-		    number := strconv.atoi(number_elem)
+			number := strconv.atoi(number_elem)
 			defer last_num = number
 			if index == 0 {
 				continue
 			}
-		    diff := abs(last_num - number)
+			diff := abs(last_num - number)
 			if diff < 1 || diff > 3 {
-			    is_safe = false
+				is_safe = false
 				break
 			}
 			if index == 1 {
-			    is_increasing = last_num < number
+				is_increasing = last_num < number
 				continue
 			}
 			if is_increasing != (last_num < number) {
-			    is_safe = false
+				is_safe = false
 				break
 			}
 		}
 		if is_safe {
-		    safe_count += 1
+			safe_count += 1
 		}
 	}
 	fmt.println(safe_count)
